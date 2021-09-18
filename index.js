@@ -2,9 +2,6 @@ const discord = require("discord.js"); /* You need to use discord.js 12.0.0 . In
 const bot = new discord.Client();
 bot.login(""); // Here you will put the token
 
-const test = new discord.MessageEmbed();
-test.setColor("#00FF00");
-
 const owners = ["ownerid"]; 
 const settings = {
     auto_invite_create_when_bot_join_in_a_guid: false, 
