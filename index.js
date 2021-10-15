@@ -1,6 +1,6 @@
 const discord = require("discord.js"); /* You need to use discord.js 12.0.0 . Install with "npm install discord.js@12.0.0" */
 const bot = new discord.Client();
-bot.login(""); // Here you will put the token
+bot.login(""); /* Here you will put the token */
 
 const owners = ["ownerid"]; 
 const settings = require("./settings.json");
