@@ -5,7 +5,7 @@ A simple NodeJS Discord Nuker BOT
 Just put your discord bot token in **index.js** `bot.login("token");` then start the app with **node index.js**
 
 # Config
-The config is in ```settings``` object.
+You can edit the config in **settings.json** file
 
 # Required NPM modules
 **discord.js** - `npm install discord.js@12.0.0`
